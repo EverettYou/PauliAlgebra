@@ -2,7 +2,7 @@
 
 (* Mathematica Package *)
 (* Author: Everett You *)
-(* Created by the Code Collector at Wed 21 Aug 2013 12:34:24 *)
+(* Created by the Code Collector at Fri 23 Aug 2013 01:19:48 *)
 (* from file: /Users/everett/Dropbox/Mathematica/Project/PauliAlgebra/developer.nb *)
 (* ===== Begin ===== *)
 BeginPackage["PauliAlgebra`"];
@@ -103,6 +103,13 @@ nTr[A_]:=A/.{\[Sigma]0[A]->1,_\[Sigma]->0}
 Protect[Tr];
 
 (* ----- Det ----- *)
+Unprotect[Det];
+Det[A_?\[Sigma]PolynomialQ]:=xDet[A];
+Protect[Det];
+xDet[A_]:=Module[{Amat,\[Sigma]s,n,M},{Amat,\[Sigma]s}=xActionSpace[A];
+n=Qbit[A];
+M=Length[\[Sigma]s];
+Det[Amat]^(2^n/M)];
 
 (* ----- Transpose ----- *)
 
@@ -132,30 +139,31 @@ ord=Ordering[\[Sigma]s];
 (* ----- Kernel ----- *)
 xActionSpace[A_]:=Module[{\[Sigma]s,n,pos,Arule,i,Amat},\[Sigma]s=Cases[A,_\[Sigma],{0,Infinity}];
 n=Length[\[Sigma]s];
-pos[s_]:=If[Length[#]==0,AppendTo[\[Sigma]s,s];n=n+1,First[First[#]]]&@Position[\[Sigma]s,s,{1},1];
+pos[s_]:=If[Length[#]==0,AppendTo[\[Sigma]s,s];++n,First@First@#]&@Position[\[Sigma]s,s,{1},1];
 Arule[p_]:=Module[{As},As=A\[CenterDot]\[Sigma]s[[p]];
 Rule[{pos[#],p},Coefficient[As,#]]&/@Cases[As,_\[Sigma],{0,Infinity}]];
 i=1;
-Amat=SparseArray[Flatten[Last[Reap[While[i<=n&&i<=4^Qbit[A],Sow[Arule[i]];i++]]]],{n,n}];
+Amat=SparseArray[Flatten[Last[Reap[While[i<=n&&i<=4^Qbit[A],Sow[Arule[i++]]]]]],{n,n}];
 {Amat,\[Sigma]s}];
 
 (* ===== Inversion ===== *)
 (* Mordify the definition of Inverse *)
 Unprotect[Inverse];
-me:Inverse[A_?\[Sigma]PolynomialQ]:=Check[xInverse[A],Message[Inverse::sing,A];
+me:Inverse[A_?\[Sigma]PolynomialQ]:=Check[invSimplify[xInverse[A]],Message[Inverse::sing,A];
 HoldForm[me]];
 Protect[Inverse];
 
 (* ----- Kernel ----- *)
 xInverse[A_]:=Module[{Amat,\[Sigma]s,sol,singular=False},{Amat,\[Sigma]s}=xActionSpace[A];
 sol=Check[LinearSolve[Amat,nTr[\[Sigma]s]],singular=True];
-If[!singular,Collect[Numerator[#],_\[Sigma],Factor]/Simplify[Denominator[#]]&@aTogether[sol.\[Sigma]s]]];
+If[!singular,sol.\[Sigma]s]];
+invSimplify[expr_]:=Collect[Numerator[#],_\[Sigma],Factor]/Simplify[Denominator[#]]&@aTogether[expr];
 aTogether[expr_]:=expr//.{a_/d_+b_/d_:>(a+b)/d,a_/c_+b_/d_:>With[{lcm=PolynomialLCM[c,d]},(a Cancel[lcm/c]+b Cancel[lcm/d])/lcm]};
 
 (* ===== Power ===== *)
 (* Mordify the definition of Power *)
 Unprotect[Power];
-me:Power[A_?\[Sigma]PolynomialQ,n_Integer]:=Check[Which[n==0,\[Sigma]0[A],n>0,nPower[A,n],n<0,nPower[Inverse[A],Abs[n]]],HoldForm[me]];
+me:Power[A_?\[Sigma]PolynomialQ,n_Integer]:=Check[Which[n==0,\[Sigma]0[A],n>0,nPower[A,n],n<0,nPower[xInverse[A],Abs[n]]],HoldForm[me]];
 me:Power[A_?\[Sigma]PolynomialQ,n_?NumericQ]:=Check[xPower[A,n],HoldForm[me]];
 Protect[Power];
 (* Mordify the definition of Sqrt *)

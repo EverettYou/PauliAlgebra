@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[    111813,       3120]
-NotebookOptionsPosition[     44801,       1618]
-NotebookOutlinePosition[    105125,       2908]
-CellTagsIndexPosition[    105037,       2903]
+NotebookDataLength[    111577,       3111]
+NotebookOptionsPosition[     44565,       1609]
+NotebookOutlinePosition[    104889,       2899]
+CellTagsIndexPosition[    104801,       2894]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -34,7 +34,7 @@ Cell[TextData[{
  "This document introduces the usage of the ",
  StyleBox["PauliAlgebra", "Program"],
  " package. Please contact the author to report bugs or give suggestions via ",
- StyleBox["you.everett@gmail.com",
+ StyleBox["everettyou.internet@gmail.com",
   FontVariations->{"Underline"->True}],
  "."
 }], "Abstract"]
@@ -122,36 +122,36 @@ Cell[BoxData[
           BaseStyle->"InformationLink",
           
           ButtonData:>{
-           "Info3586076442-6318431", {"Abstract", "PauliAlgebra`"}},
+           "Info3586209302-9605956", {"Abstract", "PauliAlgebra`"}},
           ButtonNote->"PauliAlgebra`"], 
          ButtonBox["Qbit",
           BaseStyle->"InformationLink",
-          ButtonData:>{"Info3586076442-6318431", {"Qbit", "PauliAlgebra`"}},
+          ButtonData:>{"Info3586209302-9605956", {"Qbit", "PauliAlgebra`"}},
           ButtonNote->"PauliAlgebra`"], 
          ButtonBox["\[Sigma]",
           BaseStyle->"InformationLink",
           
           ButtonData:>{
-           "Info3586076442-6318431", {"\[Sigma]", "PauliAlgebra`"}},
+           "Info3586209302-9605956", {"\[Sigma]", "PauliAlgebra`"}},
           ButtonNote->"PauliAlgebra`"]},
         {
          ButtonBox["ActionSpace",
           BaseStyle->"InformationLink",
           
           ButtonData:>{
-           "Info3586076442-6318431", {"ActionSpace", "PauliAlgebra`"}},
+           "Info3586209302-9605956", {"ActionSpace", "PauliAlgebra`"}},
           ButtonNote->"PauliAlgebra`"], 
          ButtonBox["Represent",
           BaseStyle->"InformationLink",
           
           ButtonData:>{
-           "Info3586076442-6318431", {"Represent", "PauliAlgebra`"}},
+           "Info3586209302-9605956", {"Represent", "PauliAlgebra`"}},
           ButtonNote->"PauliAlgebra`"], 
          ButtonBox["\[Sigma]PolynomialQ",
           BaseStyle->"InformationLink",
           
           ButtonData:>{
-           "Info3586076442-6318431", {"\[Sigma]PolynomialQ", "PauliAlgebra`"}},
+           "Info3586209302-9605956", {"\[Sigma]PolynomialQ", "PauliAlgebra`"}},
           ButtonNote->"PauliAlgebra`"]}
        },
        DefaultBaseStyle->"InfoGrid",
@@ -209,11 +209,12 @@ Cell[BoxData[
       }], ")"}]}], ",", 
    RowBox[{
     SubscriptBox["\[Sigma]", "3"], "=", 
-    RowBox[{"(", GridBox[{
-       {"1", "0"},
-       {"0", 
-        RowBox[{"-", "1"}]}
-      }], ")"}]}], ","}], TraditionalForm]], "DisplayFormulaNumbered"],
+    RowBox[{
+     RowBox[{"(", GridBox[{
+        {"1", "0"},
+        {"0", 
+         RowBox[{"-", "1"}]}
+       }], ")"}], "."}]}]}], TraditionalForm]], "DisplayFormulaNumbered"],
 
 Cell[TextData[{
  "Denote the tensor product of a series of Pauli matrices ",
@@ -373,20 +374,13 @@ Cell[BoxData[
      RowBox[{"{", 
       RowBox[{"j", ",", "0", ",", "3"}], "}"}]}], "]"}], ",", 
    "\[IndentingNewLine]", 
-   RowBox[{"TableHeadings", "\[Rule]", 
-    RowBox[{"{", 
-     RowBox[{
-      RowBox[{"Table", "[", 
-       RowBox[{
-        RowBox[{"\[Sigma]", "[", "i", "]"}], ",", 
-        RowBox[{"{", 
-         RowBox[{"i", ",", "0", ",", "3"}], "}"}]}], "]"}], ",", 
-      RowBox[{"Table", "[", 
-       RowBox[{
-        RowBox[{"\[Sigma]", "[", "j", "]"}], ",", 
-        RowBox[{"{", 
-         RowBox[{"j", ",", "0", ",", "3"}], "}"}]}], "]"}]}], "}"}]}]}], 
-  "]"}]], "Input"],
+   RowBox[{
+    RowBox[{
+     RowBox[{"TableHeadings", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"#", ",", "#"}], "}"}]}], "&"}], "@", 
+    RowBox[{"Array", "[", 
+     RowBox[{"\[Sigma]", ",", "4", ",", "0"}], "]"}]}]}], "]"}]], "Input"],
 
 Cell[BoxData[
  TagBox[
@@ -903,8 +897,8 @@ Cell[BoxData[
   RowBox[{
    TagBox[
     RowBox[{"(", "\[NoBreak]", GridBox[{
-       {"0", "1"},
-       {"1", "0"}
+       {"0", "0"},
+       {"1", "1"}
       },
       GridBoxAlignment->{
        "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
@@ -919,7 +913,7 @@ Cell[BoxData[
     Function[BoxForm`e$, 
      MatrixForm[
      SparseArray[
-      Automatic, {2, 2}, 0, {1, {{0, 1, 2}, {{2}, {1}}}, {1, 1}}]]]], ",", 
+      Automatic, {2, 2}, 0, {1, {{0, 0, 2}, {{2}, {1}}}, {1, 1}}]]]], ",", 
    TagBox[
     RowBox[{"(", "\[NoBreak]", 
      TagBox[GridBox[{
@@ -945,9 +939,7 @@ Cell[BoxData[
      MatrixForm[BoxForm`e$]]]}], "}"}]], "Output"]
 }, Open  ]],
 
-Cell["\<\
-One more example for Pauli polynomials.\
-\>", "TextNoIndent"],
+Cell["One more example for Pauli polynomials.", "TextNoIndent"],
 
 Cell[CellGroupData[{
 
@@ -1131,12 +1123,11 @@ Cell[BoxData[
      RowBox[{"2", ",", "2"}], "]"}]}]}], "]"}]], "Input"],
 
 Cell[BoxData[
- RowBox[{
-  SuperscriptBox["b", "4"], "-", 
-  RowBox[{"2", " ", 
-   SuperscriptBox["b", "2"], " ", 
-   SuperscriptBox["c", "2"]}], "+", 
-  SuperscriptBox["c", "4"]}]], "Output"]
+ RowBox[{"b", " ", "c", " ", 
+  RowBox[{"(", 
+   RowBox[{
+    SuperscriptBox["b", "2"], "-", 
+    SuperscriptBox["c", "2"]}], ")"}]}]], "Output"]
 }, Open  ]],
 
 Cell["\<\
@@ -2892,17 +2883,17 @@ level.", "Text"],
 (*CellTagsOutline
 CellTagsIndex->{
  "eq: 5703535385873264504"->{
-  Cell[23371, 853, 295, 10, 48, "DisplayFormulaNumbered",
+  Cell[23175, 847, 295, 10, 48, "DisplayFormulaNumbered",
    CellTags->"eq: 5703535385873264504"],
-  Cell[29548, 1054, 420, 14, 48, "DisplayFormulaNumbered",
+  Cell[29344, 1046, 420, 14, 48, "DisplayFormulaNumbered",
    CellTags->"eq: 5703535385873264504"],
-  Cell[30861, 1097, 432, 15, 49, "DisplayFormulaNumbered",
+  Cell[30657, 1089, 432, 15, 49, "DisplayFormulaNumbered",
    CellTags->"eq: 5703535385873264504"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"eq: 5703535385873264504", 104714, 2893}
+ {"eq: 5703535385873264504", 104478, 2884}
  }
 *)
 (*NotebookFileOutline
@@ -2912,211 +2903,211 @@ Cell[579, 22, 37, 0, 77, "Title"],
 Cell[619, 24, 60, 2, 58, "Author"],
 Cell[CellGroupData[{
 Cell[704, 30, 35, 0, 39, "AbstractSection"],
-Cell[742, 32, 276, 7, 49, "Abstract"]
+Cell[742, 32, 284, 7, 49, "Abstract"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1055, 44, 39, 0, 69, "Section"],
+Cell[1063, 44, 39, 0, 69, "Section"],
 Cell[CellGroupData[{
-Cell[1119, 48, 37, 0, 31, "Subsubsection"],
-Cell[1159, 50, 85, 2, 27, "TextIndent"],
-Cell[1247, 54, 1077, 30, 131, "Input"]
+Cell[1127, 48, 37, 0, 31, "Subsubsection"],
+Cell[1167, 50, 85, 2, 27, "TextIndent"],
+Cell[1255, 54, 1077, 30, 131, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2361, 89, 37, 0, 31, "Subsubsection"],
-Cell[2401, 91, 76, 0, 27, "TextIndent"],
-Cell[2480, 93, 57, 1, 28, "Input"],
-Cell[2540, 96, 172, 3, 43, "TextNoIndent"],
+Cell[2369, 89, 37, 0, 31, "Subsubsection"],
+Cell[2409, 91, 76, 0, 27, "TextIndent"],
+Cell[2488, 93, 57, 1, 28, "Input"],
+Cell[2548, 96, 172, 3, 43, "TextNoIndent"],
 Cell[CellGroupData[{
-Cell[2737, 103, 57, 1, 28, "Input"],
-Cell[2797, 106, 1990, 56, 75, "Print"]
+Cell[2745, 103, 57, 1, 28, "Input"],
+Cell[2805, 106, 1990, 56, 75, "Print"]
 }, Open  ]],
-Cell[4802, 165, 190, 4, 43, "TextNoIndent"]
+Cell[4810, 165, 190, 4, 43, "TextNoIndent"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[5041, 175, 27, 0, 69, "Section"],
+Cell[5049, 175, 27, 0, 69, "Section"],
 Cell[CellGroupData[{
-Cell[5093, 179, 32, 0, 39, "Subsection"],
+Cell[5101, 179, 32, 0, 39, "Subsection"],
 Cell[CellGroupData[{
-Cell[5150, 183, 39, 0, 31, "Subsubsection"],
-Cell[5192, 185, 62, 0, 27, "TextIndent"],
-Cell[5257, 187, 720, 28, 48, "DisplayFormulaNumbered"],
-Cell[5980, 217, 875, 22, 88, "TextNoIndent"],
+Cell[5158, 183, 39, 0, 31, "Subsubsection"],
+Cell[5200, 185, 62, 0, 27, "TextIndent"],
+Cell[5265, 187, 740, 29, 48, "DisplayFormulaNumbered"],
+Cell[6008, 218, 875, 22, 88, "TextNoIndent"],
 Cell[CellGroupData[{
-Cell[6880, 243, 190, 4, 28, "Input"],
-Cell[7073, 249, 95, 2, 28, "Output"]
+Cell[6908, 244, 190, 4, 28, "Input"],
+Cell[7101, 250, 95, 2, 28, "Output"]
 }, Open  ]],
-Cell[7183, 254, 168, 7, 25, "TextNoIndent"],
+Cell[7211, 255, 168, 7, 25, "TextNoIndent"],
 Cell[CellGroupData[{
-Cell[7376, 265, 155, 5, 28, "Input"],
-Cell[7534, 272, 914, 26, 81, "Output"]
+Cell[7404, 266, 155, 5, 28, "Input"],
+Cell[7562, 273, 914, 26, 92, "Output"]
 }, Open  ]],
-Cell[8463, 301, 499, 12, 72, "TextIndent"]
+Cell[8491, 302, 499, 12, 72, "TextIndent"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[8999, 318, 36, 0, 31, "Subsubsection"],
-Cell[9038, 320, 512, 14, 48, "TextIndent"],
+Cell[9027, 319, 36, 0, 31, "Subsubsection"],
+Cell[9066, 321, 512, 14, 48, "TextIndent"],
 Cell[CellGroupData[{
-Cell[9575, 338, 130, 3, 28, "Input"],
-Cell[9708, 343, 97, 2, 28, "Output"]
+Cell[9603, 339, 130, 3, 28, "Input"],
+Cell[9736, 344, 97, 2, 28, "Output"]
 }, Open  ]],
-Cell[9820, 348, 284, 10, 22, "TextNoIndent"],
+Cell[9848, 349, 284, 10, 22, "TextNoIndent"],
 Cell[CellGroupData[{
-Cell[10129, 362, 865, 26, 46, "Input"],
-Cell[10997, 390, 2777, 83, 99, "Output"]
+Cell[10157, 363, 641, 19, 46, "Input"],
+Cell[10801, 384, 2777, 83, 99, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[13823, 479, 55, 0, 31, "Subsubsection"],
-Cell[13881, 481, 135, 4, 27, "TextIndent"],
+Cell[13627, 473, 55, 0, 31, "Subsubsection"],
+Cell[13685, 475, 135, 4, 27, "TextIndent"],
 Cell[CellGroupData[{
-Cell[14041, 489, 259, 8, 28, "Input"],
-Cell[14303, 499, 348, 12, 28, "Output"]
+Cell[13845, 483, 259, 8, 28, "Input"],
+Cell[14107, 493, 348, 12, 28, "Output"]
 }, Open  ]],
-Cell[14666, 514, 146, 4, 22, "TextNoIndent"],
+Cell[14470, 508, 146, 4, 22, "TextNoIndent"],
 Cell[CellGroupData[{
-Cell[14837, 522, 59, 1, 28, "Input"],
-Cell[14899, 525, 951, 27, 81, "Output"]
+Cell[14641, 516, 59, 1, 28, "Input"],
+Cell[14703, 519, 951, 27, 81, "Output"]
 }, Open  ]],
-Cell[15865, 555, 146, 4, 22, "TextNoIndent"],
+Cell[15669, 549, 146, 4, 22, "TextNoIndent"],
 Cell[CellGroupData[{
-Cell[16036, 563, 61, 1, 28, "Input"],
-Cell[16100, 566, 218, 7, 28, "Output"]
+Cell[15840, 557, 61, 1, 28, "Input"],
+Cell[15904, 560, 218, 7, 28, "Output"]
 }, Open  ]],
-Cell[16333, 576, 374, 12, 43, "TextNoIndent"],
+Cell[16137, 570, 374, 12, 43, "TextNoIndent"],
 Cell[CellGroupData[{
-Cell[16732, 592, 171, 4, 28, "Input"],
-Cell[16906, 598, 494, 17, 47, "Output"]
+Cell[16536, 586, 171, 4, 28, "Input"],
+Cell[16710, 592, 494, 17, 47, "Output"]
 }, Open  ]],
-Cell[17415, 618, 449, 16, 50, "TextIndent"],
+Cell[17219, 612, 449, 16, 50, "TextIndent"],
 Cell[CellGroupData[{
-Cell[17889, 638, 126, 3, 28, "Input"],
-Cell[18018, 643, 28, 0, 28, "Output"]
+Cell[17693, 632, 126, 3, 28, "Input"],
+Cell[17822, 637, 28, 0, 28, "Output"]
 }, Open  ]],
-Cell[18061, 646, 346, 12, 25, "TextNoIndent"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[18444, 663, 41, 0, 31, "Subsubsection"],
-Cell[18488, 665, 155, 3, 48, "TextIndent"],
-Cell[CellGroupData[{
-Cell[18668, 672, 325, 10, 28, "Input"],
-Cell[18996, 684, 356, 11, 28, "Output"]
+Cell[17865, 640, 346, 12, 25, "TextNoIndent"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[19389, 700, 323, 10, 28, "Input"],
-Cell[19715, 712, 185, 5, 28, "Output"]
-}, Open  ]],
-Cell[19915, 720, 278, 8, 48, "TextIndent"],
+Cell[18248, 657, 41, 0, 31, "Subsubsection"],
+Cell[18292, 659, 155, 3, 48, "TextIndent"],
 Cell[CellGroupData[{
-Cell[20218, 732, 194, 5, 28, "Input"],
-Cell[20415, 739, 156, 4, 28, "Output"]
+Cell[18472, 666, 325, 10, 28, "Input"],
+Cell[18800, 678, 356, 11, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[20608, 748, 200, 6, 28, "Input"],
-Cell[20811, 756, 28, 0, 28, "Output"]
+Cell[19193, 694, 323, 10, 28, "Input"],
+Cell[19519, 706, 185, 5, 28, "Output"]
+}, Open  ]],
+Cell[19719, 714, 278, 8, 48, "TextIndent"],
+Cell[CellGroupData[{
+Cell[20022, 726, 194, 5, 28, "Input"],
+Cell[20219, 733, 156, 4, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20412, 742, 200, 6, 28, "Input"],
+Cell[20615, 750, 28, 0, 28, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[20900, 763, 30, 0, 39, "Subsection"],
+Cell[20704, 757, 30, 0, 39, "Subsection"],
 Cell[CellGroupData[{
-Cell[20955, 767, 37, 0, 31, "Subsubsection"],
-Cell[20995, 769, 583, 9, 132, "TextIndent"],
-Cell[21581, 780, 660, 25, 30, "TextIndent"],
-Cell[22244, 807, 924, 35, 52, "DisplayFormulaNumbered"],
-Cell[23171, 844, 197, 7, 22, "TextNoIndent"],
-Cell[23371, 853, 295, 10, 48, "DisplayFormulaNumbered",
+Cell[20759, 761, 37, 0, 31, "Subsubsection"],
+Cell[20799, 763, 583, 9, 132, "TextIndent"],
+Cell[21385, 774, 660, 25, 30, "TextIndent"],
+Cell[22048, 801, 924, 35, 52, "DisplayFormulaNumbered"],
+Cell[22975, 838, 197, 7, 22, "TextNoIndent"],
+Cell[23175, 847, 295, 10, 48, "DisplayFormulaNumbered",
  CellTags->"eq: 5703535385873264504"],
-Cell[23669, 865, 583, 18, 66, "TextNoIndent"],
-Cell[24255, 885, 231, 5, 48, "TextIndent"],
+Cell[23473, 859, 583, 18, 66, "TextNoIndent"],
+Cell[24059, 879, 231, 5, 48, "TextIndent"],
 Cell[CellGroupData[{
-Cell[24511, 894, 158, 4, 28, "Input"],
-Cell[24672, 900, 1521, 44, 47, "Output"]
+Cell[24315, 888, 158, 4, 28, "Input"],
+Cell[24476, 894, 1521, 44, 47, "Output"]
 }, Open  ]],
-Cell[26208, 947, 71, 2, 22, "TextNoIndent"],
+Cell[26012, 941, 63, 0, 22, "TextNoIndent"],
 Cell[CellGroupData[{
-Cell[26304, 953, 431, 12, 28, "Input"],
-Cell[26738, 967, 2092, 58, 81, "Output"]
+Cell[26100, 945, 431, 12, 28, "Input"],
+Cell[26534, 959, 2092, 58, 81, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[28879, 1031, 36, 0, 31, "Subsubsection"],
-Cell[28918, 1033, 627, 19, 75, "TextIndent"],
-Cell[29548, 1054, 420, 14, 48, "DisplayFormulaNumbered",
+Cell[28675, 1023, 36, 0, 31, "Subsubsection"],
+Cell[28714, 1025, 627, 19, 75, "TextIndent"],
+Cell[29344, 1046, 420, 14, 48, "DisplayFormulaNumbered",
  CellTags->"eq: 5703535385873264504"],
-Cell[29971, 1070, 887, 25, 88, "TextNoIndent"],
-Cell[30861, 1097, 432, 15, 49, "DisplayFormulaNumbered",
+Cell[29767, 1062, 887, 25, 88, "TextNoIndent"],
+Cell[30657, 1089, 432, 15, 49, "DisplayFormulaNumbered",
  CellTags->"eq: 5703535385873264504"],
-Cell[31296, 1114, 174, 4, 48, "TextIndent"],
+Cell[31092, 1106, 174, 4, 48, "TextIndent"],
 Cell[CellGroupData[{
-Cell[31495, 1122, 253, 8, 28, "Input"],
-Cell[31751, 1132, 191, 6, 32, "Output"]
+Cell[31291, 1114, 253, 8, 28, "Input"],
+Cell[31547, 1124, 159, 5, 35, "Output"]
 }, Open  ]],
-Cell[31957, 1141, 194, 4, 43, "TextNoIndent"],
+Cell[31721, 1132, 194, 4, 43, "TextNoIndent"],
 Cell[CellGroupData[{
-Cell[32176, 1149, 419, 12, 28, "Input"],
-Cell[32598, 1163, 152, 5, 36, "Output"]
+Cell[31940, 1140, 419, 12, 28, "Input"],
+Cell[32362, 1154, 152, 5, 36, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[32799, 1174, 34, 0, 31, "Subsubsection"],
-Cell[32836, 1176, 442, 9, 90, "TextIndent"],
-Cell[33281, 1187, 167, 4, 27, "TextIndent"],
+Cell[32563, 1165, 34, 0, 31, "Subsubsection"],
+Cell[32600, 1167, 442, 9, 90, "TextIndent"],
+Cell[33045, 1178, 167, 4, 27, "TextIndent"],
 Cell[CellGroupData[{
-Cell[33473, 1195, 205, 6, 28, "Input"],
-Cell[33681, 1203, 306, 11, 49, "Output"]
+Cell[33237, 1186, 205, 6, 28, "Input"],
+Cell[33445, 1194, 306, 11, 49, "Output"]
 }, Open  ]],
-Cell[34002, 1217, 79, 2, 22, "TextNoIndent"],
+Cell[33766, 1208, 79, 2, 22, "TextNoIndent"],
 Cell[CellGroupData[{
-Cell[34106, 1223, 222, 7, 28, "Input"],
-Cell[34331, 1232, 306, 11, 49, "Output"]
+Cell[33870, 1214, 222, 7, 28, "Input"],
+Cell[34095, 1223, 306, 11, 49, "Output"]
 }, Open  ]],
-Cell[34652, 1246, 165, 3, 43, "TextNoIndent"],
+Cell[34416, 1237, 165, 3, 43, "TextNoIndent"],
 Cell[CellGroupData[{
-Cell[34842, 1253, 155, 4, 28, "Input"],
-Cell[35000, 1259, 389, 7, 24, "Message"],
-Cell[35392, 1268, 425, 8, 24, "Message"],
-Cell[35820, 1278, 182, 6, 28, "Output"]
+Cell[34606, 1244, 155, 4, 28, "Input"],
+Cell[34764, 1250, 389, 7, 24, "Message"],
+Cell[35156, 1259, 425, 8, 24, "Message"],
+Cell[35584, 1269, 182, 6, 28, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[36051, 1290, 37, 0, 31, "Subsubsection"],
-Cell[36091, 1292, 252, 5, 48, "TextIndent"],
+Cell[35815, 1281, 37, 0, 31, "Subsubsection"],
+Cell[35855, 1283, 252, 5, 48, "TextIndent"],
 Cell[CellGroupData[{
-Cell[36368, 1301, 84, 2, 28, "Input"],
-Cell[36455, 1305, 62, 1, 28, "Output"]
+Cell[36132, 1292, 84, 2, 28, "Input"],
+Cell[36219, 1296, 62, 1, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[36554, 1311, 222, 7, 28, "Input"],
-Cell[36779, 1320, 584, 19, 36, "Output"]
+Cell[36318, 1302, 222, 7, 28, "Input"],
+Cell[36543, 1311, 584, 19, 36, "Output"]
 }, Open  ]],
-Cell[37378, 1342, 154, 3, 43, "TextNoIndent"],
+Cell[37142, 1333, 154, 3, 43, "TextNoIndent"],
 Cell[CellGroupData[{
-Cell[37557, 1349, 264, 9, 28, "Input"],
-Cell[37824, 1360, 1168, 40, 61, "Output"]
+Cell[37321, 1340, 264, 9, 28, "Input"],
+Cell[37588, 1351, 1168, 40, 61, "Output"]
 }, Open  ]],
-Cell[39007, 1403, 164, 3, 43, "TextNoIndent"],
+Cell[38771, 1394, 164, 3, 43, "TextNoIndent"],
 Cell[CellGroupData[{
-Cell[39196, 1410, 265, 9, 28, "Input"],
-Cell[39464, 1421, 2700, 83, 82, "Output"]
+Cell[38960, 1401, 265, 9, 28, "Input"],
+Cell[39228, 1412, 2700, 83, 82, "Output"]
 }, Open  ]],
-Cell[42179, 1507, 301, 10, 48, "TextIndent"],
+Cell[41943, 1498, 301, 10, 48, "TextIndent"],
 Cell[CellGroupData[{
-Cell[42505, 1521, 202, 6, 28, "Input"],
-Cell[42710, 1529, 562, 22, 56, "Output"]
+Cell[42269, 1512, 202, 6, 28, "Input"],
+Cell[42474, 1520, 562, 22, 56, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[43321, 1557, 44, 0, 31, "Subsubsection"],
-Cell[43368, 1559, 151, 4, 27, "TextIndent"],
+Cell[43085, 1548, 44, 0, 31, "Subsubsection"],
+Cell[43132, 1550, 151, 4, 27, "TextIndent"],
 Cell[CellGroupData[{
-Cell[43544, 1567, 167, 4, 28, "Input"],
-Cell[43714, 1573, 312, 9, 28, "Output"]
+Cell[43308, 1558, 167, 4, 28, "Input"],
+Cell[43478, 1564, 312, 9, 28, "Output"]
 }, Open  ]],
-Cell[44041, 1585, 159, 6, 27, "TextIndent"],
+Cell[43805, 1576, 159, 6, 27, "TextIndent"],
 Cell[CellGroupData[{
-Cell[44225, 1595, 343, 10, 28, "Input"],
-Cell[44571, 1607, 166, 4, 48, "Output"]
+Cell[43989, 1586, 343, 10, 28, "Input"],
+Cell[44335, 1598, 166, 4, 48, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
