@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[    111190,       3095]
-NotebookOptionsPosition[     44181,       1593]
-NotebookOutlinePosition[    104505,       2883]
-CellTagsIndexPosition[    104417,       2878]
+NotebookDataLength[    112128,       3121]
+NotebookOptionsPosition[     45115,       1619]
+NotebookOutlinePosition[    105436,       2909]
+CellTagsIndexPosition[    105348,       2904]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -708,27 +708,53 @@ Cell[BoxData[
 Cell[TextData[{
  "The built-in functions ",
  StyleBox["Conjugate", "Program"],
- " and ",
+ ", ",
+ StyleBox["Transpose", "Program"],
+ ", ",
+ StyleBox["ConjugateTranspose ", "Program"],
+ "and ",
  StyleBox["Tr", "Program"],
- " are modified to handle the Pauli expressions. The function ",
- StyleBox["Conjugate", "Program"],
- " applies the Hermitian conjugation here."
+ " are modified to handle the Pauli expressions. However if the Pauli \
+expressions appear as elements in a list or a spase array,  ",
+ StyleBox["Transpose", "Program"],
+ " and ",
+ StyleBox["ConjugateTranspose", "Program"],
+ " will just operate on the array level without acting on the Pauli \
+expressions."
 }], "TextIndent"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"Conjugate", "[", 
+ RowBox[{"Through", "[", 
   RowBox[{
-   RowBox[{"\[Sigma]", "[", "0", "]"}], "+", 
-   RowBox[{"\[ImaginaryI]", " ", 
-    RowBox[{"\[Sigma]", "[", "3", "]"}]}]}], "]"}]], "Input"],
+   RowBox[{"{", 
+    RowBox[{"Conjugate", ",", "Transpose", ",", "ConjugateTranspose"}], "}"}],
+    "\[IndentingNewLine]", "[", 
+   RowBox[{
+    RowBox[{"\[Sigma]", "[", "0", "]"}], "+", 
+    RowBox[{"\[ImaginaryI]", " ", 
+     RowBox[{"\[Sigma]", "[", "1", "]"}]}], "+", " ", 
+    RowBox[{"\[Sigma]", "[", "2", "]"}]}], "]"}], "]"}]], "Input"],
 
 Cell[BoxData[
- RowBox[{
-  RowBox[{"\[Sigma]", "[", "0", "]"}], "-", 
-  RowBox[{"\[ImaginaryI]", " ", 
-   RowBox[{"\[Sigma]", "[", "3", "]"}]}]}]], "Output"]
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"\[Sigma]", "[", "0", "]"}], "-", 
+    RowBox[{"\[ImaginaryI]", " ", 
+     RowBox[{"\[Sigma]", "[", "1", "]"}]}], "-", 
+    RowBox[{"\[Sigma]", "[", "2", "]"}]}], ",", 
+   RowBox[{
+    RowBox[{"\[Sigma]", "[", "0", "]"}], "+", 
+    RowBox[{"\[ImaginaryI]", " ", 
+     RowBox[{"\[Sigma]", "[", "1", "]"}]}], "-", 
+    RowBox[{"\[Sigma]", "[", "2", "]"}]}], ",", 
+   RowBox[{
+    RowBox[{"\[Sigma]", "[", "0", "]"}], "-", 
+    RowBox[{"\[ImaginaryI]", " ", 
+     RowBox[{"\[Sigma]", "[", "1", "]"}]}], "+", 
+    RowBox[{"\[Sigma]", "[", "2", "]"}]}]}], "}"}]], "Output"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -1591,8 +1617,8 @@ Cell[BoxData[
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{740, 673},
-WindowMargins->{{212, Automatic}, {24, Automatic}},
+WindowSize->{620, 617},
+WindowMargins->{{5, Automatic}, {Automatic, 0}},
 ShowSelection->True,
 FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (November 20, \
 2012)",
@@ -2867,17 +2893,17 @@ level.", "Text"],
 (*CellTagsOutline
 CellTagsIndex->{
  "eq: 5703535385873264504"->{
-  Cell[22928, 836, 295, 10, 48, "DisplayFormulaNumbered",
+  Cell[23862, 862, 295, 10, 48, "DisplayFormulaNumbered",
    CellTags->"eq: 5703535385873264504"],
-  Cell[29097, 1035, 420, 14, 48, "DisplayFormulaNumbered",
+  Cell[30031, 1061, 420, 14, 48, "DisplayFormulaNumbered",
    CellTags->"eq: 5703535385873264504"],
-  Cell[30278, 1074, 432, 15, 49, "DisplayFormulaNumbered",
+  Cell[31212, 1100, 432, 15, 49, "DisplayFormulaNumbered",
    CellTags->"eq: 5703535385873264504"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"eq: 5703535385873264504", 104094, 2868}
+ {"eq: 5703535385873264504", 105025, 2894}
  }
 *)
 (*NotebookFileOutline
@@ -2887,7 +2913,7 @@ Cell[579, 22, 37, 0, 77, "Title"],
 Cell[619, 24, 52, 0, 58, "Author"],
 Cell[CellGroupData[{
 Cell[696, 28, 35, 0, 39, "AbstractSection"],
-Cell[734, 30, 284, 7, 49, "Abstract"]
+Cell[734, 30, 284, 7, 70, "Abstract"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[1055, 42, 39, 0, 69, "Section"],
@@ -2916,7 +2942,7 @@ Cell[CellGroupData[{
 Cell[5142, 179, 39, 0, 31, "Subsubsection"],
 Cell[5184, 181, 62, 0, 27, "TextIndent"],
 Cell[5249, 183, 740, 29, 48, "DisplayFormulaNumbered"],
-Cell[5992, 214, 875, 22, 88, "TextNoIndent"],
+Cell[5992, 214, 875, 22, 109, "TextNoIndent"],
 Cell[CellGroupData[{
 Cell[6892, 240, 190, 4, 28, "Input"],
 Cell[7085, 246, 95, 2, 28, "Output"]
@@ -2926,16 +2952,16 @@ Cell[CellGroupData[{
 Cell[7388, 262, 155, 5, 28, "Input"],
 Cell[7546, 269, 914, 26, 81, "Output"]
 }, Open  ]],
-Cell[8475, 298, 466, 11, 72, "TextIndent"]
+Cell[8475, 298, 466, 11, 93, "TextIndent"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[8978, 314, 36, 0, 31, "Subsubsection"],
-Cell[9017, 316, 479, 13, 48, "TextIndent"],
+Cell[9017, 316, 479, 13, 69, "TextIndent"],
 Cell[CellGroupData[{
 Cell[9521, 333, 130, 3, 28, "Input"],
 Cell[9654, 338, 97, 2, 28, "Output"]
 }, Open  ]],
-Cell[9766, 343, 251, 9, 22, "TextNoIndent"],
+Cell[9766, 343, 251, 9, 43, "TextNoIndent"],
 Cell[CellGroupData[{
 Cell[10042, 356, 641, 19, 46, "Input"],
 Cell[10686, 377, 2777, 83, 99, "Output"]
@@ -2968,7 +2994,7 @@ Cell[CellGroupData[{
 Cell[17578, 625, 126, 3, 28, "Input"],
 Cell[17707, 630, 28, 0, 28, "Output"]
 }, Open  ]],
-Cell[17750, 633, 346, 12, 25, "TextNoIndent"]
+Cell[17750, 633, 346, 12, 46, "TextNoIndent"]
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[18133, 650, 41, 0, 31, "Subsubsection"],
@@ -2981,117 +3007,117 @@ Cell[CellGroupData[{
 Cell[19078, 687, 323, 10, 28, "Input"],
 Cell[19404, 699, 185, 5, 28, "Output"]
 }, Open  ]],
-Cell[19604, 707, 278, 8, 48, "TextIndent"],
+Cell[19604, 707, 535, 16, 111, "TextIndent"],
 Cell[CellGroupData[{
-Cell[19907, 719, 194, 5, 28, "Input"],
-Cell[20104, 726, 156, 4, 28, "Output"]
+Cell[20164, 727, 395, 10, 46, "Input"],
+Cell[20562, 739, 632, 17, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[20297, 735, 200, 6, 28, "Input"],
-Cell[20500, 743, 28, 0, 28, "Output"]
+Cell[21231, 761, 200, 6, 28, "Input"],
+Cell[21434, 769, 28, 0, 28, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[20589, 750, 30, 0, 39, "Subsection"],
+Cell[21523, 776, 30, 0, 39, "Subsection"],
 Cell[CellGroupData[{
-Cell[20644, 754, 37, 0, 31, "Subsubsection"],
-Cell[20684, 756, 583, 9, 132, "TextIndent"],
-Cell[21270, 767, 561, 22, 30, "TextIndent"],
-Cell[21834, 791, 924, 35, 52, "DisplayFormulaNumbered"],
-Cell[22761, 828, 164, 6, 22, "TextNoIndent"],
-Cell[22928, 836, 295, 10, 48, "DisplayFormulaNumbered",
+Cell[21578, 780, 37, 0, 31, "Subsubsection"],
+Cell[21618, 782, 583, 9, 153, "TextIndent"],
+Cell[22204, 793, 561, 22, 30, "TextIndent"],
+Cell[22768, 817, 924, 35, 52, "DisplayFormulaNumbered"],
+Cell[23695, 854, 164, 6, 22, "TextNoIndent"],
+Cell[23862, 862, 295, 10, 48, "DisplayFormulaNumbered",
  CellTags->"eq: 5703535385873264504"],
-Cell[23226, 848, 583, 18, 66, "TextNoIndent"],
-Cell[23812, 868, 231, 5, 48, "TextIndent"],
+Cell[24160, 874, 583, 18, 66, "TextNoIndent"],
+Cell[24746, 894, 231, 5, 69, "TextIndent"],
 Cell[CellGroupData[{
-Cell[24068, 877, 158, 4, 28, "Input"],
-Cell[24229, 883, 1521, 44, 47, "Output"]
+Cell[25002, 903, 158, 4, 28, "Input"],
+Cell[25163, 909, 1521, 44, 47, "Output"]
 }, Open  ]],
-Cell[25765, 930, 63, 0, 22, "TextNoIndent"],
+Cell[26699, 956, 63, 0, 22, "TextNoIndent"],
 Cell[CellGroupData[{
-Cell[25853, 934, 431, 12, 28, "Input"],
-Cell[26287, 948, 2092, 58, 81, "Output"]
+Cell[26787, 960, 431, 12, 46, "Input"],
+Cell[27221, 974, 2092, 58, 81, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[28428, 1012, 36, 0, 31, "Subsubsection"],
-Cell[28467, 1014, 627, 19, 75, "TextIndent"],
-Cell[29097, 1035, 420, 14, 48, "DisplayFormulaNumbered",
+Cell[29362, 1038, 36, 0, 31, "Subsubsection"],
+Cell[29401, 1040, 627, 19, 96, "TextIndent"],
+Cell[30031, 1061, 420, 14, 48, "DisplayFormulaNumbered",
  CellTags->"eq: 5703535385873264504"],
-Cell[29520, 1051, 755, 21, 88, "TextNoIndent"],
-Cell[30278, 1074, 432, 15, 49, "DisplayFormulaNumbered",
+Cell[30454, 1077, 755, 21, 88, "TextNoIndent"],
+Cell[31212, 1100, 432, 15, 49, "DisplayFormulaNumbered",
  CellTags->"eq: 5703535385873264504"],
-Cell[30713, 1091, 174, 4, 48, "TextIndent"],
+Cell[31647, 1117, 174, 4, 48, "TextIndent"],
 Cell[CellGroupData[{
-Cell[30912, 1099, 253, 8, 28, "Input"],
-Cell[31168, 1109, 191, 6, 32, "Output"]
+Cell[31846, 1125, 253, 8, 28, "Input"],
+Cell[32102, 1135, 191, 6, 32, "Output"]
 }, Open  ]],
-Cell[31374, 1118, 194, 4, 43, "TextNoIndent"],
+Cell[32308, 1144, 194, 4, 43, "TextNoIndent"],
 Cell[CellGroupData[{
-Cell[31593, 1126, 419, 12, 28, "Input"],
-Cell[32015, 1140, 152, 5, 36, "Output"]
+Cell[32527, 1152, 419, 12, 28, "Input"],
+Cell[32949, 1166, 152, 5, 36, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[32216, 1151, 34, 0, 31, "Subsubsection"],
-Cell[32253, 1153, 442, 9, 90, "TextIndent"],
-Cell[32698, 1164, 167, 4, 27, "TextIndent"],
+Cell[33150, 1177, 34, 0, 31, "Subsubsection"],
+Cell[33187, 1179, 442, 9, 111, "TextIndent"],
+Cell[33632, 1190, 167, 4, 48, "TextIndent"],
 Cell[CellGroupData[{
-Cell[32890, 1172, 205, 6, 28, "Input"],
-Cell[33098, 1180, 306, 11, 49, "Output"]
+Cell[33824, 1198, 205, 6, 28, "Input"],
+Cell[34032, 1206, 306, 11, 49, "Output"]
 }, Open  ]],
-Cell[33419, 1194, 71, 0, 22, "TextNoIndent"],
+Cell[34353, 1220, 71, 0, 22, "TextNoIndent"],
 Cell[CellGroupData[{
-Cell[33515, 1198, 222, 7, 28, "Input"],
-Cell[33740, 1207, 306, 11, 49, "Output"]
+Cell[34449, 1224, 222, 7, 28, "Input"],
+Cell[34674, 1233, 306, 11, 49, "Output"]
 }, Open  ]],
-Cell[34061, 1221, 165, 3, 43, "TextNoIndent"],
+Cell[34995, 1247, 165, 3, 43, "TextNoIndent"],
 Cell[CellGroupData[{
-Cell[34251, 1228, 155, 4, 28, "Input"],
-Cell[34409, 1234, 389, 7, 24, "Message"],
-Cell[34801, 1243, 425, 8, 24, "Message"],
-Cell[35229, 1253, 182, 6, 28, "Output"]
+Cell[35185, 1254, 155, 4, 28, "Input"],
+Cell[35343, 1260, 389, 7, 24, "Message"],
+Cell[35735, 1269, 425, 8, 24, "Message"],
+Cell[36163, 1279, 182, 6, 28, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[35460, 1265, 37, 0, 31, "Subsubsection"],
-Cell[35500, 1267, 252, 5, 48, "TextIndent"],
+Cell[36394, 1291, 37, 0, 31, "Subsubsection"],
+Cell[36434, 1293, 252, 5, 69, "TextIndent"],
 Cell[CellGroupData[{
-Cell[35777, 1276, 84, 2, 28, "Input"],
-Cell[35864, 1280, 62, 1, 28, "Output"]
+Cell[36711, 1302, 84, 2, 28, "Input"],
+Cell[36798, 1306, 62, 1, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[35963, 1286, 222, 7, 28, "Input"],
-Cell[36188, 1295, 584, 19, 36, "Output"]
+Cell[36897, 1312, 222, 7, 28, "Input"],
+Cell[37122, 1321, 584, 19, 36, "Output"]
 }, Open  ]],
-Cell[36787, 1317, 154, 3, 43, "TextNoIndent"],
+Cell[37721, 1343, 154, 3, 43, "TextNoIndent"],
 Cell[CellGroupData[{
-Cell[36966, 1324, 264, 9, 28, "Input"],
-Cell[37233, 1335, 1168, 40, 61, "Output"]
+Cell[37900, 1350, 264, 9, 28, "Input"],
+Cell[38167, 1361, 1168, 40, 61, "Output"]
 }, Open  ]],
-Cell[38416, 1378, 164, 3, 43, "TextNoIndent"],
+Cell[39350, 1404, 164, 3, 43, "TextNoIndent"],
 Cell[CellGroupData[{
-Cell[38605, 1385, 265, 9, 28, "Input"],
-Cell[38873, 1396, 2704, 84, 82, "Output"]
+Cell[39539, 1411, 265, 9, 28, "Input"],
+Cell[39807, 1422, 2704, 84, 108, "Output"]
 }, Open  ]],
-Cell[41592, 1483, 268, 9, 48, "TextIndent"],
+Cell[42526, 1509, 268, 9, 48, "TextIndent"],
 Cell[CellGroupData[{
-Cell[41885, 1496, 202, 6, 28, "Input"],
-Cell[42090, 1504, 562, 22, 56, "Output"]
+Cell[42819, 1522, 202, 6, 28, "Input"],
+Cell[43024, 1530, 562, 22, 56, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[42701, 1532, 44, 0, 31, "Subsubsection"],
-Cell[42748, 1534, 151, 4, 27, "TextIndent"],
+Cell[43635, 1558, 44, 0, 31, "Subsubsection"],
+Cell[43682, 1560, 151, 4, 48, "TextIndent"],
 Cell[CellGroupData[{
-Cell[42924, 1542, 167, 4, 28, "Input"],
-Cell[43094, 1548, 312, 9, 28, "Output"]
+Cell[43858, 1568, 167, 4, 28, "Input"],
+Cell[44028, 1574, 312, 9, 28, "Output"]
 }, Open  ]],
-Cell[43421, 1560, 159, 6, 27, "TextIndent"],
+Cell[44355, 1586, 159, 6, 48, "TextIndent"],
 Cell[CellGroupData[{
-Cell[43605, 1570, 343, 10, 28, "Input"],
-Cell[43951, 1582, 166, 4, 48, "Output"]
+Cell[44539, 1596, 343, 10, 28, "Input"],
+Cell[44885, 1608, 166, 4, 48, "Output"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]

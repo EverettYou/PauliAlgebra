@@ -2,7 +2,7 @@
 
 (* Mathematica Package *)
 (* Author: Everett You *)
-(* Created by the Code Collector at Fri 23 Aug 2013 01:33:31 *)
+(* Created by the Code Collector at Fri 6 Jun 2014 23:31:12 *)
 (* from file: /Users/everett/Dropbox/Mathematica/Project/PauliAlgebra/developer.nb *)
 (* ===== Begin ===== *)
 BeginPackage["PauliAlgebra`"];
@@ -93,8 +93,12 @@ me:CenterDot[___,_Plus,___]:=Distribute[Unevaluated[me],Plus];
 
 (* ----- Conjugate ----- *)
 Unprotect[Conjugate];
-Conjugate[\[Sigma][a___]]:=\[Sigma][a];
+Conjugate[\[Sigma][a___]]:=(-1)^Count[{a},2] \[Sigma][a];
 Protect[Conjugate];
+
+(* ----- Transpose and Conjugate Transpose ----- *)
+checkTranspose[x_]:=x/.{Transpose[A_?\[Sigma]PolynomialQ]:>(A/.s_\[Sigma]:>Conjugate[s]),ConjugateTranspose[A_?\[Sigma]PolynomialQ]:>(Conjugate[A]/.s_\[Sigma]:>Conjugate[s])};
+$Post=checkTranspose;
 
 (* ----- Tr ----- *)
 Unprotect[Tr];
@@ -110,8 +114,6 @@ xDet[A_]:=Module[{Amat,\[Sigma]s,n,M},{Amat,\[Sigma]s}=xActionSpace[A];
 n=Qbit[A];
 M=Length[\[Sigma]s];
 Det[Amat]^(2^n/M)];
-
-(* ----- Transpose ----- *)
 
 (* ===== Represent ===== *)
 (* Give matrix represenation of \[Sigma]-polynomial *)
@@ -137,7 +139,7 @@ ord=Ordering[\[Sigma]s];
 {Amat[[ord,ord]],\[Sigma]s[[ord]]}];
 
 (* ----- Kernel ----- *)
-xActionSpace[A_]:=Module[{\[Sigma]s,n,pos,Arule,i,Amat},\[Sigma]s=Cases[A,_\[Sigma],{0,Infinity}];
+xActionSpace[A_]:=Module[{\[Sigma]s,n,pos,Arule,i,Amat},\[Sigma]s=DeleteDuplicates@Cases[A,_\[Sigma],{0,Infinity}];
 n=Length[\[Sigma]s];
 pos[s_]:=If[Length[#]==0,AppendTo[\[Sigma]s,s];++n,First@First@#]&@Position[\[Sigma]s,s,{1},1];
 Arule[p_]:=Module[{As},As=A\[CenterDot]\[Sigma]s[[p]];
